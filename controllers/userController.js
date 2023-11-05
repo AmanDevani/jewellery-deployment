@@ -5,7 +5,7 @@ const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const cloudinary = require("cloudinary");
-const Otp = require("../Models/otpModel");
+const Otp = require("../models/otpModel");
 const bcrypt = require("bcryptjs");
 const fs = require("fs");
 const otpGenerator = require("otp-generator");
@@ -174,7 +174,6 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   const resetPasswordUrl = `${req.protocol}://${req.get(
     "host"
   )}/password/reset/${resetToken}`;
-
   const message = `Your Password Reset Token is \n\n ${resetPasswordUrl} \n\n If you have not requested this email then, please ignore it.`;
 
   const subject = "jewellery Password Recovery.";
